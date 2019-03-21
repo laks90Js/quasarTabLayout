@@ -1,47 +1,52 @@
 <template>
-  <q-page class="flex">
-    <q-tabs>
-  <!-- Tabs - notice slot="title" -->
-  <q-tab default slot="title" name="tab-1" icon="message" />
-  <q-tab slot="title" name="tab-2" icon="fingerprint" />
-  <q-tab slot="title" name="tab-3" icon="account_box" />
-  <!-- Targets -->
-  <q-tab-pane name="tab-1">Tab One</q-tab-pane>
-  <q-tab-pane name="tab-2">Tab Two</q-tab-pane>
-  <q-tab-pane name="tab-3">Tab Three</q-tab-pane>
-</q-tabs>
+  <q-page padding class="outer-tab-pane row justify-center">
+    <div style="width: 1200px; max-width: 90vw;">
+      <q-tabs animated swipeable inverted color="secondary" align="justify" two-lines="true" panes-container-class="" v-model="selectedTab">
+        <q-tab @click="tabClick('React')" default name="React" slot="title" label="React" />
+        <q-tab @click="tabClick('Angular')" name="Angular" slot="title"  label="Angular" />
+        <q-tab @click="tabClick('Vue')" name="Vue" slot="title" label="Vue" />
+
+        <q-tab-pane name="React">
+          {{currentTabData.title}}
+        </q-tab-pane>
+        <q-tab-pane name="Angular">Angualr tab</q-tab-pane>
+        <q-tab-pane name="Vue">Vue tab</q-tab-pane>
+      </q-tabs>
+    </div>
   </q-page>
 </template>
 
-<style>
-</style>
-
 <script>
-import axios from 'axios';
+import axios from 'axios'
+let currentTabData = {};
 
 export default {
-  name: 'PageIndex',
-  methods : {
-    loadData()  {
-      axios.get("../assets/tabs.json")
-      .then(reponse => {
-        console.log(response);
-      }).catch(error=>{
-        console.log(error)
+  data () {
+    return {
+      aLangTypes: [
+        'Angular',
+        'React',
+        'Vue'
+      ]
+    }
+  },
+  methods: {
+    tabClick (langType) {
+      axios.get('../assets/stubs/tabs.json').then(response =>{
+        this.currentTabData = response[langType];
+      }).catch(function () {
+        console.log("error");
       })
-    },
-    mounted () {
-      this.loadData()
     }
   }
 }
 </script>
 
-
-
-
-export default ({app, router, Vue}) => {
-  Vue.prototype.$axios = axios
-  // ^ ^ ^ this will allow you to use this.$axios
-  //       so you won't necessarily have to import axios in each vue file
-}
+<style lang="stylus">
+.outer-tab-pane
+  .q-tab-pane
+    display flex
+    align-items center
+    justify-content center
+    height 65px
+</style>

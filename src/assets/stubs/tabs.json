@@ -1,3 +1,11 @@
 {
-    "status" : "success"
+    "Angular" : {
+        "title" : "Angular"
+    },
+    "React" : {
+        "title" : "React"
+    },
+    "Vue" : {
+        "title" : "Vue"
+    }
 }
