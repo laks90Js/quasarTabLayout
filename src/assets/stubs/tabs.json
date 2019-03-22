@@ -1,11 +1,22 @@
 {
     "Angular" : {
-        "title" : "Angular"
+        "title" : "Angular",
+        "content" : "Some of Vue’s syntax will look very similar to AngularJS (e.g. v-if vs ng-if). This is because there were a lot of things that AngularJS got right and these were an inspiration for Vue very early in its development. There are also many pains that come with AngularJS however, where Vue has attempted to offer a significant improvement."
     },
     "React" : {
-        "title" : "React"
+        "title" : "React",
+        "content" : "React and Vue share many similarities. They both:
+                     utilize a virtual DOM
+        provide reactive and composable view components
+        maintain focus in the core library, with concerns such as routing and global state management handled by companion libraries
+        Being so similar in scope, we’ve put more time into fine-tuning this comparison than any other. We want to ensure not only technical accuracy, but also balance. We point out where React outshines Vue, for example in the richness of their ecosystem and abundance of their custom renderers.
+        
+        With that said, it’s inevitable that the comparison would appear biased towards Vue to some React users, as many of the subjects explored are to some extent subjective. We acknowledge the existence of varying technical taste, and this comparison primarily aims to outline the reasons why Vue could potentially be a better fit if your preferences happen to coincide with ours.
+        
+        Some of the sections below may also be slightly outdated due to recent updates in React 16+, and we are planning to work with the React community to revamp this section in the near future."
     },
     "Vue" : {
-        "title" : "Vue"
+        "title" : "Vue",
+        "content" : ""
     }
 }
